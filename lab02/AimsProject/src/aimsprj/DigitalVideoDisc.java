@@ -9,6 +9,10 @@ public class DigitalVideoDisc {
 	public String getTitle() {
 		return title;
 	}
+	public String setTitle(String newtitle) {
+		this.title = newtitle;
+		return title;
+	}
 	public String getCategory() {
 		return category;
 	}
