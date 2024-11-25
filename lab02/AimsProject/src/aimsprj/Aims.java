@@ -17,10 +17,13 @@ public class Aims {
 		anOrder.addDigitalVideoDisc(dvdList);
 		anOrder.addDigitalVideoDisc(dvd4, dvd5);
 		anOrder.removeDigitalVideoDisc(dvd2);
+    feature/search-cart
 		anOrder.Search(2);
 		anOrder.Search(22);
 		anOrder.Search("Iron man");
 		anOrder.Search("Black Panther");
+		anOrder.printCart(anOrder);
+    IT3100E.744517.20241.20235504.NguyenCongHuy
 		System.out.println("Total cost is: ");
 		System.out.println(anOrder.totalCost());
 	}
