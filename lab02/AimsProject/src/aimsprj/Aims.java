@@ -17,7 +17,7 @@ public class Aims {
 		anOrder.addDigitalVideoDisc(dvdList);
 		anOrder.addDigitalVideoDisc(dvd4, dvd5);
 		anOrder.removeDigitalVideoDisc(dvd2);
-		
+		anOrder.printCart(anOrder);
 		System.out.println("Total cost is: ");
 		System.out.println(anOrder.totalCost());
 	}
