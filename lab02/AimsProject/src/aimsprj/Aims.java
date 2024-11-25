@@ -17,7 +17,10 @@ public class Aims {
 		anOrder.addDigitalVideoDisc(dvdList);
 		anOrder.addDigitalVideoDisc(dvd4, dvd5);
 		anOrder.removeDigitalVideoDisc(dvd2);
-		
+		anOrder.Search(2);
+		anOrder.Search(22);
+		anOrder.Search("Iron man");
+		anOrder.Search("Black Panther");
 		System.out.println("Total cost is: ");
 		System.out.println(anOrder.totalCost());
 	}
