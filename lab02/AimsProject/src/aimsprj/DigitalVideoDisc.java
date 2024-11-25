@@ -15,6 +15,10 @@ public class DigitalVideoDisc {
 		this.title = newtitle;
 		return title;
 	}
+	
+	public int getId() {
+		return id;
+	}
 	public String getCategory() {
 		return category;
 	}
@@ -29,7 +33,6 @@ public class DigitalVideoDisc {
 	}
 	public DigitalVideoDisc(String title) {
 		super();
-		this.id = DigitalVideoDisc.nbDigitalVideoDiscs++;
 		this.title = title;
 	}
 	public DigitalVideoDisc(String title, String category, float cost) {
@@ -61,7 +64,5 @@ public class DigitalVideoDisc {
 		return( (id+1) + " - "  + dvd.getTitle() + " - " + dvd.getCategory() + " - "
 				+ dvd.getDirector() + " - " + dvd.getLength() + ": " + dvd.getCost() + "$");
 	}
-	public int getId() {
-		return id;
-	}	
+
 }
