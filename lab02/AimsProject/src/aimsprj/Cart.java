@@ -89,9 +89,9 @@ public class Cart {
 		System.out.println("Ordered items: ");
 		for(int i = 0; i < this.qtyOrdered; i++) {
 			System.out.println(this.itemsOrdered[i].toString(this.itemsOrdered[i]));
+		}
 		System.out.println("Total cost: " + this.totalCost());
 		System.out.println("***************************************************");
-		}
 	}
 	public void Search(int id) {
 		if (id > Cart.MAX_NUMBERS_ORDERED) {
