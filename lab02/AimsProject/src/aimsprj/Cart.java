@@ -88,7 +88,6 @@ public class Cart {
 		System.out.println("***********************CART***********************");
 		System.out.println("Ordered items: ");
 		for(int i = 0; i < this.qtyOrdered; i++) {
- feature/search-cart
 			System.out.println(this.itemsOrdered[i].toString(this.itemsOrdered[i]));
 		System.out.println("Total cost: " + this.totalCost());
 		System.out.println("***************************************************");
@@ -114,7 +113,6 @@ public class Cart {
 		}if(!found) {
 			System.out.println("No matching DVDs in the cart");
 
-IT3100E.744517.20241.20235504.NguyenCongHuy
 		}
 	}
 }
