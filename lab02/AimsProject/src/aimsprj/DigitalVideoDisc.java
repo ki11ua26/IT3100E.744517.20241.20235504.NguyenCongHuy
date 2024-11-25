@@ -56,5 +56,12 @@ public class DigitalVideoDisc {
 		this.length = length;
 		this.cost = cost;
 	}
-	
+	public String toString(DigitalVideoDisc dvd) {
+		int id = dvd.getId();
+		return( (id+1) + " - "  + dvd.getTitle() + " - " + dvd.getCategory() + " - "
+				+ dvd.getDirector() + " - " + dvd.getLength() + ": " + dvd.getCost() + "$");
+	}
+	public int getId() {
+		return id;
+	}	
 }
