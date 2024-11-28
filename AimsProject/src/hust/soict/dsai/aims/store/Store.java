@@ -1,7 +1,7 @@
 package hust.soict.dsai.aims.store;
 import java.util.Arrays;
 
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 public class Store {
 	private static final int MAX_NUMBERS = 500;
 	DigitalVideoDisc itemInStore[] = new DigitalVideoDisc[Store.MAX_NUMBERS];
