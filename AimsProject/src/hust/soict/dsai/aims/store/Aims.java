@@ -14,12 +14,12 @@ public class Aims {
 		DigitalVideoDisc dvd4 = new DigitalVideoDisc("Iron man", "Science Fiction", 89.22f);
 		DigitalVideoDisc dvd5 = new DigitalVideoDisc("Spider man", "Super Hero", 58.22f);
 		DigitalVideoDisc[] dvdList = {dvd1, dvd2, dvd3};
-		anOrder.addDigitalVideoDisc(dvd1);
-		anOrder.addDigitalVideoDisc(dvd2);
-		anOrder.addDigitalVideoDisc(dvd3);
-		anOrder.addDigitalVideoDisc(dvdList);
-		anOrder.addDigitalVideoDisc(dvd4, dvd5);
-		anOrder.removeDigitalVideoDisc(dvd2);
+		anOrder.addMedia(dvd1);
+		anOrder.addMedia(dvd2);
+		anOrder.addMedia(dvd3);
+		anOrder.addMedia(dvdList);
+		anOrder.addMedia(dvd4, dvd5);
+		anOrder.removeMedia(dvd2);
 		anOrder.Search(2);
 		anOrder.Search(22);
 		anOrder.Search("Iron man");

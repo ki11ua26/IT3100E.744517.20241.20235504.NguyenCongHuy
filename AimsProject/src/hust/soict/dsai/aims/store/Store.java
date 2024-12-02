@@ -1,38 +1,30 @@
 package hust.soict.dsai.aims.store;
-import java.util.Arrays;
+import java.util.ArrayList;
 
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.Media;
 public class Store {
 	private static final int MAX_NUMBERS = 500;
-	DigitalVideoDisc itemInStore[] = new DigitalVideoDisc[Store.MAX_NUMBERS];
 	int qtyItem = 0;
-	public boolean addDVD (DigitalVideoDisc disc) {
-		if (this.qtyItem == Store.MAX_NUMBERS) {
+	ArrayList<Media> itemsInStore = new ArrayList<Media>();
+	public void addMedia (Media disc) {
+		if (itemsInStore.size() == MAX_NUMBERS) {
 			System.out.println("Store full, cannot order more!");
-			return false;
+			return;
 		}
-		if (Arrays.asList(this.itemInStore).contains(disc)) {
+		if (itemsInStore.contains(disc)) {
 			System.out.println("Item is already in the store");
-			return false;
+			return;
 		}
-		this.itemInStore[this.qtyItem] = disc;
-		this.qtyItem += 1;
+		itemsInStore.add(disc);
 		System.out.println("Item is added successfully");
-		return true;
 	}
 	
-	public boolean removeDVD (DigitalVideoDisc disc) {
-		if (! Arrays.asList(this.itemInStore).contains(disc)) {
+	public void removeMedia (Media disc) {
+		if (!itemsInStore.contains(disc)) {
 			System.out.println("Item is unavailable");
-			return false;
+			return;
 		}
-		int index = Arrays.asList(this.itemInStore).indexOf(disc);
-		for (int i = index; i < this.qtyItem - 1; i++) {
-			this.itemInStore[i] = this.itemInStore[i+1];
-		}
-		this.itemInStore[this.qtyItem - 1] = new DigitalVideoDisc("<Deleted Token>");
-		this.qtyItem -= 1;
-		System.out.println("Item is removed successfully");
-		return true;
+		itemsInStore.remove(disc);
+		System.out.println("Item's removed succesfully");
 	}
 }
