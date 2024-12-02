@@ -47,5 +47,12 @@ public class Media {
 	public Media() {
 		// TODO Auto-generated constructor stub
 	}
+	public boolean equals(Object o) {
+		if (o instanceof Media) {
+			Media O = (Media)o;
+			return this.title.equals(O.getTitle());
+		}
+		return false;		
+	}
 
 }
