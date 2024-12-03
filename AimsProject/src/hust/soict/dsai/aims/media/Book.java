@@ -40,5 +40,9 @@ public class Book extends Media{
 	public Book() {
 		// TODO Auto-generated constructor stub
 	}
+	public String toString() {
+		String s = "Book - " + this.getTitle() + " - " + this.getCategory() + ": " + this.getCost() + " $";
+	    return s;
+	}
 
 }
