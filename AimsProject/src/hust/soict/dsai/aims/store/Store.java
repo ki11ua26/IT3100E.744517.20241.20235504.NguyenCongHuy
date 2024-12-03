@@ -35,4 +35,12 @@ public class Store {
 		itemsInStore.remove(disc);
 		System.out.println("Item's removed succesfully");
 	}
+	public void print() {
+		System.out.println("**********************STORE**********************");
+		System.out.println("Items In Store:");
+		for (Media t: itemsInStore) {
+			System.out.println(t);
+		}
+		System.out.println("*************************************************");
+	}
 }

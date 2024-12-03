@@ -46,7 +46,7 @@ public class Cart {
 		}
 		return sum;
 	}
-	public void printCart(Cart cart) {
+	public void printCart() {
 		System.out.println("***********************CART***********************");
 		System.out.println("Ordered items: ");
 		for(Media item: itemsOrdered) {
