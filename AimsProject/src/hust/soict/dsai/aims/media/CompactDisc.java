@@ -12,6 +12,9 @@ public class CompactDisc extends Disc implements Playable{
 		super(title, category, director, length, cost);
 		// TODO Auto-generated constructor stub
 	}
+	public CompactDisc(String title, String category, float cost) {
+		super(title, category, null, 0, 0.0f);
+	}
 	public void addTrack(Track track) {
 		if(tracks.contains(track)) {
 			System.out.println("The track's already existed");

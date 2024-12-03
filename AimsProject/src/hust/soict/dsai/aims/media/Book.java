@@ -5,6 +5,9 @@ public class Book extends Media{
 	public ArrayList<String> getAuthors() {
 		return authors;
 	}
+	public Book(String title, String category, float cost) {
+		super(title, category, cost);
+	}
 
 	public void setAuthors(ArrayList<String> authors) {
 		this.authors = authors;
