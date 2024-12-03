@@ -6,6 +6,14 @@ public class Store {
 	private static final int MAX_NUMBERS = 500;
 	int qtyItem = 0;
 	ArrayList<Media> itemsInStore = new ArrayList<Media>();
+	public ArrayList<Media> getItemsInStore() {
+		return itemsInStore;
+	}
+
+	public void setItemsInStore(ArrayList<Media> itemsInStore) {
+		this.itemsInStore = itemsInStore;
+	}
+
 	public void addMedia (Media disc) {
 		if (itemsInStore.size() == MAX_NUMBERS) {
 			System.out.println("Store full, cannot order more!");

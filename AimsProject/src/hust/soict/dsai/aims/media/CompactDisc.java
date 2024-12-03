@@ -47,5 +47,10 @@ public class CompactDisc extends Disc implements Playable{
 	public CompactDisc() {
 		// TODO Auto-generated constructor stub
 	}
+	public String toString() {
+	    String s = "CD - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getDirector() + " - " + this.getLength() + " : " + String.format("%.2f", this.getCost()) + " $";
+	    return s;
+	}
+
 
 }
