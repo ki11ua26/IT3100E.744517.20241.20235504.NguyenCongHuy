@@ -15,7 +15,7 @@ public class MediaStore extends JPanel {
 	public MediaStore(Media media) {
 		this.media = media;
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		
+			
 		JLabel title = new JLabel(media.getTitle());
 		title.setFont(new Font(title.getFont().getName(), Font.PLAIN, 15));
 		title.setAlignmentX(CENTER_ALIGNMENT);
