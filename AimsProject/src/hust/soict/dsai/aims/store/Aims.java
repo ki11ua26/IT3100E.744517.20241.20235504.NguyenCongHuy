@@ -1,6 +1,11 @@
 package hust.soict.dsai.aims.store;
 import java.util.*;
+
+import javax.swing.JOptionPane;
+
 import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.exception.LimitExceededException;
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.media.*;
 
 public class Aims {
@@ -167,20 +172,32 @@ public class Aims {
 		int n = input.nextInt();
 		input.nextLine();
 		if (n == 1) {
-			cart.addMedia(media);
-			storeMenu();
+			try {
+                cart.addMedia(media);
+            } catch (LimitExceededException e) {
+                System.err.println("LimitExceededException: " + e.getMessage());
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+               
+            }
 		}
 		else if (n == 2) {
-			if (media instanceof DigitalVideoDisc) {
-				DigitalVideoDisc dvd = (DigitalVideoDisc) media;
-				dvd.play();
-			}
-			else if (media instanceof CompactDisc) {
-				CompactDisc cd = (CompactDisc) media;
-				cd.play();
-			}
-			else if (media instanceof Book) {
-				System.out.println("Can't be played");
+
+			try {
+                if (media instanceof DigitalVideoDisc) {
+                    DigitalVideoDisc dvd = (DigitalVideoDisc) media;
+                    dvd.play();
+                }
+                else if (media instanceof CompactDisc) {
+                    CompactDisc cd = (CompactDisc) media;
+                    cd.play();
+                }
+                else if (media instanceof Book) {
+                    System.out.println("Can't be played");
+                }
+            } catch (PlayerException e) {
+                System.err.println("PlayerException: " + e.getMessage());
+                e.printStackTrace();
 			}
 			System.out.println("Do you want to add to cart?");
 			System.out.println("1. Yes");
@@ -188,9 +205,17 @@ public class Aims {
 			int opt = input.nextInt();
 			input.nextLine();
 			if(opt == 1) {
-				cart.addMedia(media);
-				storeMenu();
-			}
+				try {
+                    cart.addMedia(media);
+                } catch (LimitExceededException e) {
+                    System.err.println("LimitExceededException: " + e.getMessage());
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    
+                }
+                storeMenu();
+                
+            }
 			else if(opt == 0) {
 				storeMenu();
 			}
@@ -213,9 +238,17 @@ public class Aims {
 		String title = input.nextLine();
 		for(Media media: store.getItemsInStore()) {
 			if(media.getTitle().equals(title)) {
-				cart.addMedia(media);
-				storeMenu();
-				return ;
+				try {
+                    cart.addMedia(media);
+                    System.out.println("The media has been added to the cart.");
+                } catch (LimitExceededException e) {
+                    System.err.println("LimitExceededException: " + e.getMessage());
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    
+                }
+                storeMenu();
+                return ;
 			}
 		}
 		System.out.println("Media not found");
@@ -226,9 +259,16 @@ public class Aims {
 		String title = input.nextLine();
 		for(Media media: store.getItemsInStore()) {
 			if(media.getTitle().equals(title)) {
-				if (media instanceof DigitalVideoDisc) {
-					DigitalVideoDisc dvd = (DigitalVideoDisc) media;
-					dvd.play();
+				 try {
+	                    if (media instanceof CompactDisc){
+	                        CompactDisc cd = (CompactDisc) media;
+	                        cd.play();
+	                    } else if (media instanceof DigitalVideoDisc){
+	                        DigitalVideoDisc dvd = (DigitalVideoDisc) media;
+	                        dvd.play();
+	                    } else if (media instanceof Book) {
+	                        System.out.println("Can't be played");
+	                    }
 				}
 				else if (media instanceof CompactDisc) {
 					CompactDisc cd = (CompactDisc) media;
@@ -240,7 +280,6 @@ public class Aims {
 				storeMenu();
 				return ;
 			}
-		}
 		System.out.println("Media not found");
 		storeMenu();
 	}
@@ -355,22 +394,33 @@ public class Aims {
 		String title = input.nextLine();
 		for (Media media: store.getItemsInStore()) {
 			if (media.getTitle().equals(title)) {
-				if (media instanceof CompactDisc){
-					CompactDisc cd = (CompactDisc) media;
-					cd.play();
-					cartMenu();
-					return;
-				} else if (media instanceof DigitalVideoDisc){
-					DigitalVideoDisc dvd = (DigitalVideoDisc) media;
-					dvd.play();
-					cartMenu();
-					return;
-				} else if (media instanceof Book) {
-					System.out.println("Can't be played");
-					cartMenu();
-					return ;
-				}
-			}
+                try {
+                    if (media instanceof CompactDisc){
+                        CompactDisc cd = (CompactDisc) media;
+                        cd.play();
+                        cartMenu();
+                        return;
+                    } else if (media instanceof DigitalVideoDisc){
+                        DigitalVideoDisc dvd = (DigitalVideoDisc) media;
+                        dvd.play();
+                        cartMenu();
+                        return;
+                    } else if (media instanceof Book) {
+                        System.out.println("Can't be played");
+                        cartMenu();
+                        return ;
+                    }
+                   
+                } catch (PlayerException e) {
+                	
+                	
+                   JOptionPane.showMessageDialog(null, "Error in media: " + media.toString(), "Error", JOptionPane.ERROR_MESSAGE);
+                	System.out.println("Error in media: "+ media.toString());
+                	System.err.println("PlayerException:" + e.getMessage());
+                	e.printStackTrace();
+        
+                }
+            }
 		}
 		System.out.println("Media does not exist!");
 		cartMenu();
